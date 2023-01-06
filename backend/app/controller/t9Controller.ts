@@ -8,7 +8,7 @@ t9.set('7', ['p', 'q', 'r', 's'])
 t9.set('8', ['t', 'u', 'v'])
 t9.set('9', ['w', 'x', 'y', 'z'])
 
-export const getT9Combination = (fromNumber: string) => {
+export const getT9Combination = (fromNumber: string): string[] => {
     
     let numberArrays = fromNumber.toString().split('')
                         .map((num: string) => t9.get(num) || ['']);

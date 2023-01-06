@@ -1,18 +1,22 @@
 import { Request, Response, Router, NextFunction } from 'express'
 
 import * as t9Controller from '../controller/t9Controller'
+import * as wordFileController from '../controller/wordFileController'
 
 const router = Router()
 
-router.get('/:number', (req: Request, res: Response, next: NextFunction) => {
+router.get('/:number', async (req: Request, res: Response, next: NextFunction) => {
   try {
     const numbers: string = req.params.number
-    const response = t9Controller.getT9Combination(numbers)
+
+    const combinations = t9Controller.getT9Combination(numbers)
+    const words = await wordFileController.wordsByCharacterStrings(combinations)
+    
     res.status(200)
-    res.json(response)
+    res.json(words)
   } catch (e) {
     next(e)
   }
-  });
+  })
 
   export default router
