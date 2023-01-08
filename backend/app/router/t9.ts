@@ -13,7 +13,7 @@ router.get('/:number', async (req: Request, res: Response, next: NextFunction) =
     const words = await wordFileController.wordsByCharacterStrings(combinations)
     
     res.status(200)
-    res.json(words)
+    res.json({words: words})
   } catch (e) {
     next(e)
   }
