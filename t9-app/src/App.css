@@ -3,5 +3,27 @@
   padding: 2rem;
 }
 .App {
-  width: 300px;
+  width: 340px;
+  padding: 40px;
+  background-color: rgb(104, 104, 104);
+  border-radius: 8px;
 } 
+.button {
+  color: rgb(7, 211, 238);
+  border: 1px solid rgb(7, 211, 238);
+  border-radius: 5px;
+  padding: 10px;
+  transition-duration: .15s;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: rgb(7, 211, 238);
+  color: rgb(27, 27, 27);
+}
+
+.chip {
+  padding: 5px 8px;
+  background-color: cadetblue;
+  color: rgb(34, 34, 34);
+  border-radius: 20px;
+}

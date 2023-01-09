@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import { DialButtonProps } from './types'
 import { DialButton } from './components/DialButton'
+import { Word } from './components/Word'
 
 
 
@@ -69,20 +70,22 @@ function App() {
 
   return (
     <div className="App flex flex-col items-center">
-      <div className='numbers'>
-        <span>Numbers:</span><span>{numbers.join(' ')}</span>
+      <div className='mb-8'>
+        <span className='text-xl font-bold'>Numbers:</span><span className='text-xl font-bold'> {numbers.join(' ')}</span>
       </div>
-      <div className='dial flex flex-row flex-wrap w-auto'>
+      <div className='mb-8 flex flex-row flex-wrap gap-2 justify-center'>
         {
           DIAL.map(dialBtn => <DialButton onPress={() => setNumbers([...numbers, dialBtn.num])} characters={dialBtn.characters} num={dialBtn.num} key={dialBtn.characters.toString()} />)
         }
       </div>
-      <div className='buttons'>
-        <button onClick={deleteLast}>Delete last entry</button>
-        <button onClick={reset}>Reset</button>
+      <div className='flex gap-4 mb-8'>
+        <button className='button' onClick={deleteLast}>Delete last entry</button>
+        <button className='button' onClick={reset}>Reset</button>
       </div>
-      <div className='results'>
-        {words.join(' ')}
+      <div className='flex flex-wrap gap-2'>
+        {
+          words.map(word => <Word word={word} />)
+        }
       </div>
     </div>
   )

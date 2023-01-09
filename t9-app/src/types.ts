@@ -1,4 +1,4 @@
-export type DialButtonProps {
+export type DialButtonProps = {
     num: string,
     characters: string[],
     onPress?: any
